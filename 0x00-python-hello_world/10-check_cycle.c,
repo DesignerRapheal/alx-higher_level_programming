@@ -8,23 +8,20 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *current, *temp;
+	listint_t *current, *check;
 
 	if (list == NULL || list->next == NULL)
 		return (0);
-
 	current = list;
+	check = current->next;
 
-	while (current->next != NULL)
+	while (current != NULL && check->next != NULL
+		&& check->next->next != NULL)
 	{
-		temp = current->next;
-		while (temp->next != NULL)
-		{
-			if (current == temp)
-				return (1);
-			temp = temp->next;
-		}
+		if (current == check)
+			return (1);
 		current = current->next;
+		check = check->next->next;
 	}
 	return (0);
 }
