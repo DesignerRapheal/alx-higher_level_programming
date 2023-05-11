@@ -16,5 +16,3 @@ if __name__ == "__main__":
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         quit(1)
-
-        # author - DesignerRapheal
